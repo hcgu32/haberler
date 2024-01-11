@@ -19,8 +19,16 @@ function isoToTimestamp(isoDate) {
 }
 const haber = async function(kategori) {
     const cesit = ["ekonomi", "guncel", "dunya", "spor", "politika", "magazin", "teknoloji", "saglik", "otomobil", "kultur-sanat", "kadin"];
-    if (!cesit.some(x => kategori == x)) kategori = ""
-    if (cesit.some(x => kategori == x)) kategori.replace("ekonomi", "?kategori=ekonomi").replace("guncel", "?kategori=guncel").replace("dunya", "?kategori=dunya").replace("spor", "?kategori=spor").replace("politika", "?kategori=politika").replace("magazin", "?kategori=magazin").replace("teknoloji", "?kategori=teknoloji").replace("saglik", "?kategori=saglik").replace("otomobil", "?kategori=otomobil").replace("kultur-sanat", "?kategori=kultur-sanat").replace("kadin", "?kategori=kadin")
+  
+  if (!cesit.some(x => kategori === x)) {
+  kategori = "";
+}
+
+if (cesit.some(x => kategori === x)) {
+ 
+  
+  kategori.replaceAll("ekonomi", "?kategori=ekonomi").replaceAll("guncel", "?kategori=guncel").replaceAll("dunya", "?kategori=dunya").replaceAll("spor", "?kategori=spor").replaceAll("politika", "?kategori=politika").replaceAll("magazin", "?kategori=magazin").replaceAll("teknoloji", "?kategori=teknoloji").replaceAll("saglik", "?kategori=saglik").replaceAll("otomobil", "?kategori=otomobil").replaceAll("kultur-sanat", "?kategori=kultur-sanat").replaceAll("kadin", "?kategori=kadin")
+}
     const feed = await parser.parseURL(`${hurl}${kategori}`);
     const item = feed.items
     const rs = async function(i) {
