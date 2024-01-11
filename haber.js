@@ -27,7 +27,7 @@ const haber = async function(kategori) {
 if (cesit.some(x => kategori === x)) {
  
   
-  kategori.replaceAll("ekonomi", "?kategori=ekonomi").replaceAll("guncel", "?kategori=guncel").replaceAll("dunya", "?kategori=dunya").replaceAll("spor", "?kategori=spor").replaceAll("politika", "?kategori=politika").replaceAll("magazin", "?kategori=magazin").replaceAll("teknoloji", "?kategori=teknoloji").replaceAll("saglik", "?kategori=saglik").replaceAll("otomobil", "?kategori=otomobil").replaceAll("kultur-sanat", "?kategori=kultur-sanat").replaceAll("kadin", "?kategori=kadin")
+  kategori = kategori.replaceAll("ekonomi", "?kategori=ekonomi").replaceAll("guncel", "?kategori=guncel").replaceAll("dunya", "?kategori=dunya").replaceAll("spor", "?kategori=spor").replaceAll("politika", "?kategori=politika").replaceAll("magazin", "?kategori=magazin").replaceAll("teknoloji", "?kategori=teknoloji").replaceAll("saglik", "?kategori=saglik").replaceAll("otomobil", "?kategori=otomobil").replaceAll("kultur-sanat", "?kategori=kultur-sanat").replaceAll("kadin", "?kategori=kadin")
 }
     const feed = await parser.parseURL(`${hurl}${kategori}`);
     const item = feed.items
