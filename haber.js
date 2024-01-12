@@ -1,6 +1,6 @@
 const Parser = require('rss-parser');
 const parser = new Parser();
-const hurl = 'https://rss.haberler.com/rss.asp'
+const hurl = `https://rss.haberler.com/rss.asp`
 const package = require("./package.json")
 const hata = `[${package.name}] Bir hata oluştu. Sorunu Discord sunucumuza (https://discord.gg/JUbHy74zkW) gelerek bildirebilirsiniz.`
 const axios = require('axios');
@@ -17,19 +17,17 @@ try {
 function isoToTimestamp(isoDate) {
     return Date.parse(isoDate)
 }
-const haber = async function(kategori) {
-    const cesit = ["ekonomi", "guncel", "dunya", "spor", "politika", "magazin", "teknoloji", "saglik", "otomobil", "kultur-sanat", "kadin"];
-  
-  if (!cesit.some(x => kategori === x)) {
-  kategori = "";
+const haber = async function (kategori) {
+  let kategoris= kategori.toLocaleLowerCase("tr-TR")
+    const cesit = [`ekonomi`, `guncel`, `dunya`, `spor`, `politika`, "`magazin`, `teknoloji", `saglik`, `otomobil`,  `kultur-sanat`, `kadin`];
+  if (!cesit.some(x => kategoris=== x)) {
+  kategoris = ` `;
 }
+if (cesit.some(x => kategoris === x)) { 
+  kategoris= kategoris.replaceAll(`ekonomi`, `?kategori=ekonomi`).replaceAll(`guncel`, `?kategori=guncel`).replaceAll(`dunya`, `?kategori=dunya`).replaceAll(`spor`, `?kategori=spor`).replaceAll(`politika`, `?kategori=politika`).replaceAll(`magazin`, `?kategori=magazin`).replaceAll(`teknoloji`, `?kategori=teknoloji`).replaceAll(`saglik`, `?kategori=saglik`).replaceAll(`otomobil`, `?kategori=otomobil`).replaceAll(`kultur-sanat`, `?kategori=kultur-sanat`).replaceAll(`kadin`, `?kategori=kadin`)
 
-if (cesit.some(x => kategori === x)) {
- 
-  
-  kategori = kategori.replaceAll("ekonomi", "?kategori=ekonomi").replaceAll("guncel", "?kategori=guncel").replaceAll("dunya", "?kategori=dunya").replaceAll("spor", "?kategori=spor").replaceAll("politika", "?kategori=politika").replaceAll("magazin", "?kategori=magazin").replaceAll("teknoloji", "?kategori=teknoloji").replaceAll("saglik", "?kategori=saglik").replaceAll("otomobil", "?kategori=otomobil").replaceAll("kultur-sanat", "?kategori=kultur-sanat").replaceAll("kadin", "?kategori=kadin")
 }
-    const feed = await parser.parseURL(`${hurl}${kategori}`);
+    const feed = await parser.parseURL(`${hurl}${kategoris}`);
     const item = feed.items
     const rs = async function(i) {
         const response = await axios.get(item[i].link);
@@ -185,3 +183,4 @@ if (cesit.some(x => kategori === x)) {
 module.exports = {
     haber
 };
+
