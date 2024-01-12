@@ -18,12 +18,16 @@ function isoToTimestamp(isoDate) {
     return Date.parse(isoDate)
 }
 const haber = async function (kategori) {
-  let kategoris= kategori.toLocaleLowerCase("tr-TR")
+    if(kategori == undefined || kategori == null || kategori == "" || typeof kategori !== "string") {
+      kategori = ""
+    }
+ let kategoris= kategori?.toLocaleLowerCase("tr-TR");
+    
     const cesit = [`ekonomi`, `guncel`, `dunya`, `spor`, `politika`, "`magazin`, `teknoloji", `saglik`, `otomobil`,  `kultur-sanat`, `kadin`];
-  if (!cesit.some(x => kategoris=== x)) {
+  if (!cesit.some(x => kategoris== x)) {
   kategoris = ` `;
 }
-if (cesit.some(x => kategoris === x)) { 
+if (cesit.some(x => kategoris == x)) { 
   kategoris= kategoris.replaceAll(`ekonomi`, `?kategori=ekonomi`).replaceAll(`guncel`, `?kategori=guncel`).replaceAll(`dunya`, `?kategori=dunya`).replaceAll(`spor`, `?kategori=spor`).replaceAll(`politika`, `?kategori=politika`).replaceAll(`magazin`, `?kategori=magazin`).replaceAll(`teknoloji`, `?kategori=teknoloji`).replaceAll(`saglik`, `?kategori=saglik`).replaceAll(`otomobil`, `?kategori=otomobil`).replaceAll(`kultur-sanat`, `?kategori=kultur-sanat`).replaceAll(`kadin`, `?kategori=kadin`)
 
 }
