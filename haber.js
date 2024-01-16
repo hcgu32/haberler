@@ -6,6 +6,7 @@ const hata = `[${package.name}] Bir hata oluştu. Sorunu Discord sunucumuza (htt
 const axios = require('axios');
 const cheerio = require('cheerio');
 const fetch = require("node-fetch");
+const version=`${package.version}`
 try {
     fetch(`https://registry.npmjs.org/${package.name}/latest`).then(async(res) => {
         res.json().then(async (data) => {
@@ -23,7 +24,7 @@ const haber = async function (kategori) {
     }
  let kategoris= kategori?.toLocaleLowerCase("tr-TR");
     
-    const cesit = [`ekonomi`, `guncel`, `dunya`, `spor`, `politika`, "`magazin`, `teknoloji", `saglik`, `otomobil`,  `kultur-sanat`, `kadin`];
+    const cesit = [`ekonomi`, `guncel`, `dunya`, `spor`, `politika`, `magazin`, `teknoloji`, `saglik`, `otomobil`,  `kultur-sanat`, `kadin`];
   if (!cesit.some(x => kategoris== x)) {
   kategoris = ` `;
 }
@@ -182,9 +183,5 @@ if (cesit.some(x => kategoris == x)) {
             link: `${item[19].link}`
         })
     return news;
-
 }
-module.exports = {
-    haber
-};
-
+module.exports = {haber,version};
