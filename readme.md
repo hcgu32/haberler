@@ -4,7 +4,7 @@
  <p align="center"><a href="https://nodei.co/npm/haberler/"><img src="https://nodei.co/npm/haberler.png"></a>
 
 
-  ### ❔ [Destek](https://discord.gg/JUbHy74zkW)
+  ### ❔ [Destek](https://discord.gg/jhT5hRf89u)
 
 ### 📂 [Npm Modül](https://npmjs.com/package/haberler)
 
@@ -12,12 +12,12 @@
 
 
 ## İndirme
-```
+```console
 npm i haberler
 ```
 
 ## Örnek:
-```
+```javascript
 const {haber} = require("haberler");
 (async()=>{
   const x = await haber(/*Kategori belirterek belirtilen kategorinin haberlerini alabilirsiniz. Boş bırakarak tüm haberleri alabilirsiniz. Kategoriler: "ekonomi", "guncel", "dunya", "spor", "politika", "magazin", "teknoloji", "saglik", "otomobil", "kultur-sanat", "kadin" */)
@@ -25,5 +25,10 @@ const {haber} = require("haberler");
 })()
 ```
 
-## Herhangi bir sorunda [Discord Sunucumuzdan ](https://discord.gg/JUbHy74zkW) bize ulaşabilirsiniz.
-> Discord Sunucumuz: https://discord.gg/JUbHy74zkW
+## Herhangi bir sorunda [Discord Sunucumuzdan](https://discord.gg/jhT5hRf89u) bize ulaşabilirsiniz.
+> Discord Sunucumuz:
+> https://discord.gg/jhT5hRf89u
+
+<br> </br>
+[![Discord](https://api.weblutions.com/discord/invite/jhT5hRf89u/)](https://discord.gg/jhT5hRf89u)
+<br> </br>
