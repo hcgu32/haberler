@@ -31,7 +31,7 @@ const {haber} = require("haberler");
 const {haber} = require("haberler");
 (async()=>{
   const x = await haber("spor")
-  console.log(x[0])
+  console.log(x)
 })()
 ```
 
@@ -41,7 +41,7 @@ const {haber} = require("haberler");
 const {haber} = require("haberler");
 (async()=>{
   const x = await haber("",10)
-  console.log(x[0])
+  console.log(x)
 })()
 ```
 
