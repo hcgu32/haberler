@@ -25,7 +25,7 @@ const {haber} = require("haberler");
 })()
 ```
 
-### » Kategori belirterek belirtilen kategorinin haberlerini alabilirsiniz. Boş bırakarak veya "" koyarak tüm haberleri alabilirsiniz. Kategoriler: "ekonomi", "guncel", "dunya", "spor", "politika", "magazin", "teknoloji", "saglik", "otomobil", "kultur-sanat", "kadin"  
+### » Kategori belirterek belirtilen kategorinin haberlerini alabilirsiniz. Boş bırakarak veya "" koyarak tüm haberleri alabilirsiniz. Kategoriler: "son-dakika","ekonomi", "guncel", "dunya", "spor", "politika", "magazin", "teknoloji", "saglik", "otomobil", "kultur-sanat", "kadin"  
 ## Örnek:
 ```javascript 
 const {haber} = require("haberler");

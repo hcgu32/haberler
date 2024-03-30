@@ -23,22 +23,22 @@ const haber = async function (kategori,sayi) {
     if(kategori == undefined || kategori == null || kategori == "" || typeof kategori !== "string") {
       kategori = ""
     }
-  
+
   if(isNaN(sayi) || sayi== undefined || sayi == null || sayi == ""||parseInt(sayi)<1) {
     sayi = 20
   }
   if(parseInt(sayi)>20) {
     throw new Error(`${ad} 20'den büyük sayı giremezsiniz.`)
   }
-  
+
  let kategoris= kategori?.toLocaleLowerCase("tr-TR");
-    
-    const cesit = [`ekonomi`, `guncel`, `dunya`, `spor`, `politika`, `magazin`, `teknoloji`, `saglik`, `otomobil`,  `kultur-sanat`, `kadin`];
+
+    const cesit = [`son-dakika`,`ekonomi`, `guncel`, `dunya`, `spor`, `politika`, `magazin`, `teknoloji`, `saglik`, `otomobil`,  `kultur-sanat`, `kadin`];
   if (!cesit.some(x => kategoris== x)) {
   kategoris = ` `;
 }
 if (cesit.some(x => kategoris == x)) { 
-  kategoris= kategoris.replaceAll(`ekonomi`, `?kategori=ekonomi`).replaceAll(`guncel`, `?kategori=guncel`).replaceAll(`dunya`, `?kategori=dunya`).replaceAll(`spor`, `?kategori=spor`).replaceAll(`politika`, `?kategori=politika`).replaceAll(`magazin`, `?kategori=magazin`).replaceAll(`teknoloji`, `?kategori=teknoloji`).replaceAll(`saglik`, `?kategori=saglik`).replaceAll(`otomobil`, `?kategori=otomobil`).replaceAll(`kultur-sanat`, `?kategori=kultur-sanat`).replaceAll(`kadin`, `?kategori=kadin`)
+  kategoris= kategoris.replaceAll(`son-dakika`, `?kategori=son-dakika`).replaceAll(`ekonomi`, `?kategori=ekonomi`).replaceAll(`guncel`, `?kategori=guncel`).replaceAll(`dunya`, `?kategori=dunya`).replaceAll(`spor`, `?kategori=spor`).replaceAll(`politika`, `?kategori=politika`).replaceAll(`magazin`, `?kategori=magazin`).replaceAll(`teknoloji`, `?kategori=teknoloji`).replaceAll(`saglik`, `?kategori=saglik`).replaceAll(`otomobil`, `?kategori=otomobil`).replaceAll(`kultur-sanat`, `?kategori=kultur-sanat`).replaceAll(`kadin`, `?kategori=kadin`)
 
 }
     const feed = await parser.parseURL(`${hurl}${kategoris}`);
@@ -51,8 +51,8 @@ if (cesit.some(x => kategoris == x)) {
         return images
     }
     const news = []
-  
-  
+
+
   for(let i=0;i<=parseInt(sayi)-1;i++){
    news.push({
         title: `${item[i].title}`,
@@ -61,7 +61,7 @@ if (cesit.some(x => kategoris == x)) {
         date: `${isoToTimestamp(item[i].isoDate)}`,
         link: `${item[i].link}`
     })
-  
+
   }                    
     return news;
 }
